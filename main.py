@@ -34,7 +34,6 @@ def main():
         total_rewards += reward
         true_label = info["true_label"]
         
-        # Track detailed metrics
         if action == true_label:
             correct_predictions += 1
         elif action == 1 and true_label == 0:

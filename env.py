@@ -39,7 +39,7 @@ class Environment(gym.Env):
         true_label = self.labels[self.current_state]
         reward = 1 if action == true_label else -1
         
-        terminated = self.current_state >= len(self.data) - 1  # Changed condition
+        terminated = self.current_state >= len(self.data) - 1 
         truncated = False
         
         next_state = self.get_state()
