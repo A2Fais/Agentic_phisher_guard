@@ -38,19 +38,20 @@ class Environment(gym.Env):
     def step(self, action):
         true_label = self.labels[self.current_state]
         reward = 1 if action == true_label else -1
-        self.current_state += 1
-        terminated = self.current_state >= len(self.data)
-        truncated = False 
         
-        if terminated:
-            next_state = self.data.iloc[len(self.data)-1].values.astype(np.float32)
-        else:
-            next_state = self.get_state()
+        terminated = self.current_state >= len(self.data) - 1  # Changed condition
+        truncated = False
+        
+        next_state = self.get_state()
+        
+        if not terminated:
+            self.current_state += 1
         
         info = {
             "current_state": self.current_state,
             "reward": reward,
-            "terminated": terminated
+            "terminated": terminated,
+            "true_label": true_label
         }
         
         return next_state, reward, terminated, truncated, info
