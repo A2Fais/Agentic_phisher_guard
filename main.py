@@ -30,6 +30,7 @@ def main():
         print("\n")
         print("=====================================")
     print(f"Episode finished with total reward: {total_rewards}")
+    model.save("./model/dqn_model")
     
 
 if __name__ == "__main__":
