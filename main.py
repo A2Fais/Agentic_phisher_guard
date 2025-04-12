@@ -10,6 +10,7 @@ def load_process_data():
 def main():
     processed_data = load_process_data()
     print("Data processing completed successfully")
+    print(processed_data.get_n_feautures())
 
 if __name__ == "__main__":
     main()
