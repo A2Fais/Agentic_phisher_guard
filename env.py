@@ -14,7 +14,6 @@ class Environment(gym.Env):
         self.feature_max = self.data.max()
         self.feature_min = self.data.min()
         self.data = ((self.data - self.feature_min) / (self.feature_max - self.feature_min)).astype(np.float32)
-        
         self.n_features = len(self.int_columns)
         
         # Ensure observation space uses float32 consistently
